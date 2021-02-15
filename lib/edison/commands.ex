@@ -25,7 +25,7 @@ defmodule Edison.Commands do
 
             Api.create_message(
               msg.channel_id,
-              "Added role @#{photomarket_role_name} to <@#{msg.author.id}>"
+              "Added `#{photomarket_role_name}` role to <@#{msg.author.id}>"
             )
 
           _ ->
