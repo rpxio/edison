@@ -13,19 +13,19 @@ defmodule Edison.Commands do
           "ping" ->
             Api.create_message(msg.channel_id, "pong")
 
-          "give_role mechmarket" ->
-            mechmarket_role_id = Application.fetch_env!(:edison, :mechmarket_role_id)
+          "give_role photomarket" ->
+            photomarket_role_id = Application.fetch_env!(:edison, :photomarket_role_id)
 
-            mechmarket_role_name =
+            photomarket_role_name =
               Api.get_guild_roles!(msg.guild_id)
-              |> Enum.find(fn role -> role.id == mechmarket_role_id end)
+              |> Enum.find(fn role -> role.id == photomarket_role_id end)
               |> Map.get(:name)
 
-            Api.add_guild_member_role(msg.guild_id, msg.author.id, mechmarket_role_id)
+            Api.add_guild_member_role(msg.guild_id, msg.author.id, photomarket_role_id)
 
             Api.create_message(
               msg.channel_id,
-              "Added role @#{mechmarket_role_name} to <@#{msg.author.id}>"
+              "Added role @#{photomarket_role_name} to <@#{msg.author.id}>"
             )
 
           _ ->
