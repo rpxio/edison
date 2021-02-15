@@ -1,1 +1,1 @@
-worker: MIX_ENV=prod mix run --no-halt
+worker: mix run --no-halt
